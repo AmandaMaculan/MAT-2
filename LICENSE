@@ -1,21 +1,98 @@
-MIT License
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Botão de Acessibilidade</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+}
 
-Copyright (c) 2025 AmandaMaculan
+/* Estilo do botão */
+#acessibilidade-btn {
+position: fixed;
+padding: 10px 15px;
+background-color: #0057b8;
+color: white;
+border: none;
+border-radius: 50%;
+cursor: pointer;
+z-index: 1000;
+font-size: 18px;
+}
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+/* Opções de posição (altere a classe no container) */
+.top-left {
+top: 20px;
+left: 20px;
+}
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+.top-right {
+top: 20px;
+right: 20px;
+}
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+.bottom-left {
+bottom: 20px;
+left: 20px;
+}
+
+.bottom-right {
+bottom: 20px;
+right: 20px;
+}
+
+/* Estilo das opções */
+#acessibilidade-opcoes {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+background: white;
+border: 1px solid #ccc;
+padding: 10px;
+min-width: 150px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#acessibilidade-opcoes p {
+margin: 5px 0;
+cursor: pointer;
+}
+
+#acessibilidade-opcoes p:hover {
+background-color: #f0f0f0;
+}
+</style>
+</head>
+<body>
+
+<div id="acessibilidade-container" class="bottom-right">
+<button id="acessibilidade-btn">A</button>
+<div id="acessibilidade-opcoes">
+<p>Aumentar fonte</p>
+<p>Contraste</p>
+<p>Leitor de tela</p>
+</div>
+</div>
+
+<script>
+const btn = document.getElementById('acessibilidade-btn');
+const opcoes = document.getElementById('acessibilidade-opcoes');
+const container = document.getElementById('acessibilidade-container');
+
+// Mostra opções ao passar o mouse
+btn.addEventListener('mouseenter', () => {
+opcoes.style.display = 'block';
+});
+
+// Esconde ao sair do container
+container.addEventListener('mouseleave', () => {
+opcoes.style.display = 'none';
+});
+</script>
+
+</body>
+</html>
